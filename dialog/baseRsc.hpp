@@ -53,7 +53,7 @@ class grad_scoreboard_RscText {
 	colorBackground[] = { 1 , 1 , 1 , 0 };
 	colorText[] = { 1 , 1 , 1 , 1 };
 	font = "PuristaMedium";
-	sizeEx = 0.025;
+	sizeEx = 0.04 * TEXT_SCALE;
 	h = 0.25;
 	text = "";
 };
@@ -70,8 +70,8 @@ class grad_scoreboard_RscListNBox
 	colorSelectBackground[] = {1,1,1,0.35}; // Selected item fill color
 	colorSelectBackground2[] = {1,1,1,0.35}; // Selected item fill color (oscillates between this and colorSelectBackground)
 
-	sizeEx = 0.04; // Text size
-	font = "TahomaB"; // Font from CfgFontFamilies
+	sizeEx = 0.038 * TEXT_SCALE; // Text size
+	font = "PuristaSemiBold"; // Font from CfgFontFamilies
 	shadow = 0; // Shadow (0 - none, 1 - directional, color affected by colorShadow, 2 - black outline)
 	colorText[] = {1,1,1,1}; // Text and frame color
 	colorDisabled[] = {1,1,1,0.5}; // Disabled text color
@@ -79,7 +79,7 @@ class grad_scoreboard_RscListNBox
 	colorSelect2[] = {1,1,1,1}; // Text selection color (oscillates between this and colorSelect)
 	colorShadow[] = {0,0,0,0.5}; // Text shadow color (used only when shadow is 1)
 
-	tooltip = "CT_LISTNBOX"; // Tooltip text
+	tooltip = ""; // Tooltip text
 	tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
 	tooltipColorText[] = {1,1,1,1}; // Tooltip text color
 	tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
@@ -111,21 +111,4 @@ class grad_scoreboard_RscListNBox
 
 		color[] = {1,1,1,1}; // Scrollbar color
 	};
-
-	/*onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
-	onDestroy = "systemChat str ['onDestroy',_this]; false";
-	onSetFocus = "systemChat str ['onSetFocus',_this]; false";
-	onKillFocus = "systemChat str ['onKillFocus',_this]; false";
-	onKeyDown = "systemChat str ['onKeyDown',_this]; false";
-	onKeyUp = "systemChat str ['onKeyUp',_this]; false";
-	onMouseButtonDown = "systemChat str ['onMouseButtonDown',_this]; false";
-	onMouseButtonUp = "systemChat str ['onMouseButtonUp',_this]; false";
-	onMouseButtonClick = "systemChat str ['onMouseButtonClick',_this]; false";
-	onMouseButtonDblClick = "systemChat str ['onMouseButtonDblClick',_this]; false";
-	onMouseZChanged = "systemChat str ['onMouseZChanged',_this]; false";
-	onMouseMoving = "";
-	onMouseHolding = "";
-
-	onLBSelChanged = "systemChat str ['onLBSelChanged',_this]; false";
-	onLBDblClick = "systemChat str ['onLBDblClick',_this]; false";*/
 };

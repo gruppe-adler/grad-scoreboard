@@ -1,6 +1,7 @@
 class grad_scoreboard
 {
     idd = grad_scoreboard_DIALOG;
+    closeOnMissionEnd = 1;
     movingEnable = false;
     enableSimulation = true;
     enableDisplay = true;
@@ -10,13 +11,13 @@ class grad_scoreboard
     class ControlsBackground {
         class TitleBar: grad_scoreboard_RscText {
             idc = grad_scoreboard_TITLEBAR;
-            movingEnable = true;
+            moving = true;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0])",1};
 
-            x = lb_mainX;
-            y = lb_titleY;
-            w = lb_mainW;
-            h = lb_titleH;
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_titleY;
+            w = grad_scoreboard_mainW;
+            h = grad_scoreboard_titleH;
 
             sizeEx = 0.04 * TEXT_SCALE;
             text = "";
@@ -26,19 +27,19 @@ class grad_scoreboard
             idc = grad_scoreboard_MAINBACKGROUND;
             colorBackground[] = {0, 0, 0, 0.6};
 
-            x = lb_mainX;
-            y = lb_mainY;
-            w = lb_mainW;
-            h = lb_mainH;
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mainY;
+            w = grad_scoreboard_mainW;
+            h = grad_scoreboard_mainH;
         };
 
         class ScoreBoardTitleBackground: grad_scoreboard_RscBackground {
             idc = grad_scoreboard_SBTITLEBACKGROUND;
             colorBackground[] = {0, 0, 0, 0.25};
 
-            x = lb_mainX;
-            y = lb_mainY;
-            w = lb_mainW;
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mainY;
+            w = grad_scoreboard_mainW;
             h = grad_scoreboard_rowH;
         };
 
@@ -46,52 +47,100 @@ class grad_scoreboard
             idc = grad_scoreboard_MYSTATSTITLE;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0])",1};
 
-            x = lb_mainX;
-            y = lb_mystatsTitleY;
-            w = lb_mainW;
-            h = lb_titleH;
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mystatsTitleY;
+            w = grad_scoreboard_mainW;
+            h = grad_scoreboard_titleH;
 
             sizeEx = 0.04 * TEXT_SCALE;
-            text = "YOUR STATS THIS GAME";
+            text = "";
+            onLoad = "(_this select 0) ctrlShow false";
         };
 
         class MyStatsBG: grad_scoreboard_RscBackground {
             idc = grad_scoreboard_MYSTATSBACKGROUND;
             colorBackground[] = {0, 0, 0, 0.6};
 
-            x = lb_mainX;
-            y = lb_mystatsY;
-            w = lb_mainW;
-            h = lb_mystatsH;
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mystatsY;
+            w = grad_scoreboard_mainW;
+            h = grad_scoreboard_mystatsH;
+
+            onLoad = "(_this select 0) ctrlShow false";
+        };
+
+        class MyStatsTitleBackground: grad_scoreboard_RscBackground {
+            idc = grad_scoreboard_MSTITLEBACKGROUND;
+            colorBackground[] = {0, 0, 0, 0.25};
+
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mystatsY;
+            w = grad_scoreboard_mainW;
+            h = grad_scoreboard_rowH;
+
+            onLoad = "(_this select 0) ctrlShow false";
         };
     };
 
     class Controls {
         class ScoreBoardTitle: grad_scoreboard_RscListNBox {
-            idc = grad_scoreboard_LISTNBOXTITLE;
+            idc = grad_scoreboard_MAINLISTNBOXTITLE;
 
-            x = lb_mainX;
-            y = lb_mainY;
-            w = lb_mainW;
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mainY;
+            w = grad_scoreboard_mainW;
             h = grad_scoreboard_rowH;
 
             font = "PuristaMedium";
-            canDrag=true;
+            sizeEx = 0.04 * TEXT_SCALE;
+            canDrag=false;
             lineSpacing = 1.3;
             colorSelectBackground[] = {0,0,0,0}; // Selected item fill color
             colorSelectBackground2[] = {0,0,0,0}; // Selected item fill color (oscillates between this and colorSelectBackground)
         };
 
         class ScoreBoard: grad_scoreboard_RscListNBox {
-            idc = grad_scoreboard_LISTNBOX;
+            idc = grad_scoreboard_MAINLISTNBOX;
 
-            x = lb_mainX;
-            y = lb_mainY + grad_scoreboard_rowH;
-            w = lb_mainW;
-            h = lb_mainH - grad_scoreboard_rowH;
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mainY + grad_scoreboard_rowH;
+            w = grad_scoreboard_mainW;
+            h = (grad_scoreboard_mainH - grad_scoreboard_rowH) * 0.95;
 
             canDrag=true;
             lineSpacing = 1.3;
+        };
+
+        class MyStatsTitle: grad_scoreboard_RscListNBox {
+            idc = grad_scoreboard_MYSTATSLISTNBOXTITLE;
+
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mystatsY;
+            w = grad_scoreboard_mainW;
+            h = grad_scoreboard_rowH;
+
+            font = "PuristaMedium";
+            sizeEx = 0.04 * TEXT_SCALE;
+            canDrag=true;
+            lineSpacing = 1.3;
+            colorSelectBackground[] = {0,0,0,0}; // Selected item fill color
+            colorSelectBackground2[] = {0,0,0,0}; // Selected item fill color (oscillates between this and colorSelectBackground)
+            onLoad = "(_this select 0) ctrlShow false";
+        };
+
+        class MyStats: grad_scoreboard_RscListNBox {
+            idc = grad_scoreboard_MYSTATSLISTNBOX;
+
+            x = grad_scoreboard_mainX;
+            y = grad_scoreboard_mystatsY + grad_scoreboard_rowH;
+            w = grad_scoreboard_mainW;
+            h = (grad_scoreboard_mystatsH - grad_scoreboard_rowH) * 0.95;
+
+            canDrag=false;
+            lineSpacing = 1.3;
+            colorSelectBackground[] = {0,0,0,0}; // Selected item fill color
+            colorSelectBackground2[] = {0,0,0,0}; // Selected item fill color (oscillates between this and colorSelectBackground)
+            onLoad = "(_this select 0) ctrlShow false";
         };
     };
 };

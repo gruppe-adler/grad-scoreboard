@@ -5,6 +5,8 @@
 class GRAD_scoreboard {
     class common {
         file = MODULES_DIRECTORY\grad-scoreboard\functions;
+        class ctrlShowEach {};
+        class disableESC {};
         class fillListNBox {};
         class getMaxStringWidth {};
         class loadScoreboard {};
