@@ -13,5 +13,6 @@ class GRAD_scoreboard {
         class selectOwnName {};
         class setColumnsPos {};
         class setWidth {};
+        class sort {};
     };
 };

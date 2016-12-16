@@ -1,9 +1,21 @@
 #include "..\dialog\defines.hpp"
 
-private ["_additionalWidth"];
-params ["_scoreArray","_dialogTitle",["_showRank",false],["_duration", -1],["_additionalArray",[]],["_additionalTitle",""],["_additionalShowRank",false]];
+private ["_additionalWidth","_doSort","_subIndex","_ascending"];
+params [["_duration", -1],"_scoreArray","_dialogTitle",["_showRank",false],["_sort", false],["_additionalArray",[]],["_additionalTitle",""],["_additionalShowRank",false],["_additionalSort", false]];
 
 disableSerialization;
+
+//sort
+if (typeName _sort == "BOOL") then {_sort = [_sort]};
+_sort params ["_doSort", ["_subIndex", 0], ["_ascending", false]];
+if (_doSort) then {
+    [_scoreArray,_subIndex,_ascending] call grad_scoreboard_fnc_sort;
+};
+if (typeName _additionalSort == "BOOL") then {_additionalSort = [_additionalSort]};
+_additionalSort params ["_doSort", ["_subIndex", 0], ["_ascending", false]];
+if (_doSort) then {
+    [_additionalArray,_subIndex,_ascending] call grad_scoreboard_fnc_sort;
+};
 
 
 //add rank numbers
