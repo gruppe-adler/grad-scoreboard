@@ -1,6 +1,8 @@
 # GRAD Scoreboard
 **WIP**
 
+![](http://i.imgur.com/DL7b4bG.png)
+
 This won't:
 * record any kind of points or statistics througout the game
 * save statistics on the server
