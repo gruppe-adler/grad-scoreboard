@@ -36,8 +36,9 @@ class CfgFunctions {
 ```
 
 ## Usage
-If no second statistics array is provided, the additional window will be hidden.
-To open the scoreboard, use `[duration,main stats,main headline,rank numbers,sort,2nd stats,2nd headline,2nd rank numbers,2nd sort] call grad_scoreboard_fnc_loadScoreboard`:
+If no second statistics array is provided, the additional window will be hidden.  
+To open the scoreboard, use  
+`[duration,main stats,main headline,rank numbers,sort,2nd stats,2nd headline,2nd rank numbers,2nd sort] call grad_scoreboard_fnc_loadScoreboard`:
 
 | Parameter                   | Explanation                                                                                                                                                    |
 |-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -62,6 +63,7 @@ The statistics arrays passed to the scoreboard have to be formatted in a certain
 * the first nested array is interpreted as the headline
 * all nested arrays have to be the same length
 * all elements of the same index have to be of the same type
+* the main and additional stats arrays can be completely different
 
 Example:
 
