@@ -1,5 +1,6 @@
 # GRAD Scoreboard
-A dynamic scoreboard that displays what you feed it.
+A dynamic scoreboard that displays what you feed it.  
+Works well together with [GRAD Winrate Tracker](https://github.com/gruppe-adler/grad-winrateTracker).
 
 ![](http://i.imgur.com/DL7b4bG.png)
 
@@ -36,7 +37,7 @@ class CfgFunctions {
 ```
 
 ## Usage
-If no second statistics array is provided, the additional window will be hidden.  
+If no second statistics array is provided, the additional window will be hidden. The parameter array can be generated with [GRAD Winrate Tracker](https://github.com/gruppe-adler/grad-winrateTracker) (however, if you want any other stats than games, wins, losses, winrate, winrateTracker will not work for you).
 To open the scoreboard, use  
 `[duration,main stats,main headline,rank numbers,sort,2nd stats,2nd headline,2nd rank numbers,2nd sort] call grad_scoreboard_fnc_loadScoreboard`:
 
