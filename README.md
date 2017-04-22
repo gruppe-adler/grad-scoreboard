@@ -32,7 +32,7 @@ _for details about what npm is and how to use it, look it up on [npmjs.com](http
 #include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
 
 class CfgFunctions {
-    #include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
+    #include "node_modules\grad-scoreboard\cfgFunctions.hpp"
 };
 ```
 
