@@ -96,8 +96,8 @@ _allStats = [
 ```sqf
 _allStats = [
     ["Player name", "Points", "Kills"],
-    ["Hans", 12, 6],
-    ["Franz", 15, 5],
     ["Alf", 9, 2]
+    ["Franz", 15, 5],
+    ["Hans", 12, 6],
 ];
 ```
